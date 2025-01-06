@@ -8,6 +8,16 @@ import httpx
 from dotenv import load_dotenv
 from loguru import logger
 
+_DEBUG_LOG_FORMAT = "{time:MMDD HH:mm:ss.SSSSSS} | {name} | {message}"
+
+logger.remove()
+logger.add(
+    sys.stdout,
+    format=_DEBUG_LOG_FORMAT,
+    level="DEBUG",
+    colorize=True,
+)
+
 
 load_dotenv()
 
